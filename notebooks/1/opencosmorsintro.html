@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>I. What is COSMO-RS ❓ &#8212; openCOSMO-RS Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/1/opencosmorsintro';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. openCOSMO-RS_conformer_pipeline 📏" href="conformer%20pipeline.html" />
+    <link rel="prev" title="⚛️ openCOSMO-RS Guide ⚛️" href="../../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="openCOSMO-RS Book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="openCOSMO-RS Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    ⚛️ openCOSMO-RS Guide ⚛️
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">I. What is COSMO-RS ❓</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="conformer%20pipeline.html">1. openCOSMO-RS_conformer_pipeline 📏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2/Github%20repository.html">2. Github repository download  💡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3/Overview%20conf%20pipe.html">3. Overview of the openCOSMO-RS_conformer_pipeline  🔍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4/Input%20file.html">4. Let’s create the input file 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5/Call%20program.html">5. Calling the openCOSMO-RS_conformer_pipeline program! 🤖</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../6/Analysis%20input%20file.html">6. Analysis of the Calculations and the Input File 🔎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../6/overview.html">6.1 What is in our input file? 👀</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../7/github_opencosmors.html">II. openCOSMO-RS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../7/firstexamples.html">2. First Examples 🔬</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../7/ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/1/opencosmorsintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/1/opencosmorsintro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>I. What is COSMO-RS ❓</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-history">A bit of history 📜</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmo-rs-comes-into-play">COSMO-RS comes into play 🎲</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-profiles">The σ-profiles 📊</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-fluids-vs-ideal-ones">Real fluids vs ideal ones 💧</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-arrangements-the-ground-state">Molecular arrangements &amp; the Ground State 🧩</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-opencosmo-rs">What is openCOSMO-RS ❓</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opencosmo-rs-24a">openCOSMO-RS 24a 💫</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-solvation-free-energy-gsolv">What is the solvation free energy, ΔGsolv? ⚡</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="i-what-is-cosmo-rs">
+<h1>I. What is COSMO-RS ❓<a class="headerlink" href="#i-what-is-cosmo-rs" title="Link to this heading">#</a></h1>
+<div style="line-height: 1.5;">
+<p><strong>COSMO-RS</strong> (Conductor like screening model for real solvents) is a theoretical approach used to calculate <strong>solvation phenomena</strong> in chemistry. It provides a way to estimate the <strong>thermodynamic properties</strong> of fluid systems based on the molecular structure. It predicts how a solvent will behave and interact with a solute by estimating different thermodynamic parameters such as <strong>partition coefficients</strong>, <strong>surface tension</strong>, and <strong>vapor pressure</strong>.</p>
+<section id="a-bit-of-history">
+<h2>A bit of history 📜<a class="headerlink" href="#a-bit-of-history" title="Link to this heading">#</a></h2>
+<p>The computational description of molecules in fluid phase represented a challenge, for the current methods at the time struggled to capture the complex interactions between the molecules like <strong>polarization effects</strong> and <strong>cooperative interactions</strong>. <br><br>
+In the 1970s, research concentrated on treating the solvent as a continuous medium surrounding the molecule. The models in use employed a concept known as ‘<strong>dielectric theory</strong>’, which helps to understand how the solvent’s electric field influences the solute. These models are called <strong>SCRP</strong> (self-consistent reaction field), and they create a boundary around the solute to simulate the solvent’s effect, similar to the image below: <br><br></p>
+<p><img alt="bubble" src="../../_images/bubble.png" /></p>
+<p>The iterative process is to calculate how the solvent’s electric field changed due to the solute and then adjusting the solute’s properties accordingly until consistency is reached. This is defined as the stable state where the solute’s properties remain constant and do not change upon additional calculations. <br></p>
+</section>
+<section id="cosmo-rs-comes-into-play">
+<h2>COSMO-RS comes into play 🎲<a class="headerlink" href="#cosmo-rs-comes-into-play" title="Link to this heading">#</a></h2>
+<p>The <strong>COSMO-RS</strong> method is used to calculate this process by determining the <strong>dielectric screening charges</strong> and energies, using a surface around the molecule that resembles the <strong>van der Waals</strong> or <strong>vdW surface</strong>. This surface is like an invisible bubble that outlines the shape of a molecule, accounting for the site of each atom as if they were spheres. This method assumes the surface acts like a conductor. If a solvent can provide the right surface charge densities, it can <em>screen</em> the solute as effectively as a conductor. <br></p>
+<p><strong>Screening</strong> means that the electric fields are counteracted, resulting in no net electric field. Therefore, instead of viewing fluids as interacting through complex fields, they are visualized as ideally screened. In the <a class="reference external" href="https://pubs.acs.org/doi/10.1021/j100007a062">1995 paper</a> written by Andreas Klamt it shows a perfectly screened molecule, like the image below, where the purple and green points (representing the electrons) perfectly cancel each other. <br></p>
+<p><img alt="screened" src="../../_images/screened.png" /></p>
+</section>
+<section id="the-profiles">
+<h2>The σ-profiles 📊<a class="headerlink" href="#the-profiles" title="Link to this heading">#</a></h2>
+<p>However, real molecules do not have “flat faces”, so a  new concept called <strong>typical contact segments</strong> is introduced, which are portions of the molecule’s surface used to approximate interactions. The size of these segments is chosen to ensure that neighboring segments are likely to interact with different neighboring molecules.</p>
+<p>Each segment has a <strong>uniform surface charge density</strong> - so it can be represented as an average charge density - facilitating calculations. The number of segments <span class="math notranslate nohighlight">\(n_{x}\)</span> is calculated using the screening area <span class="math notranslate nohighlight">\(A_x\)</span> , which is the total surface involved in interacting with the solvent, and the effective segment area <span class="math notranslate nohighlight">\(A_eff = \pi*Reff^2 \)</span>, where <span class="math notranslate nohighlight">\(R_{eff}\)</span> is the effective segment radius. <a class="reference external" href="https://pubs.acs.org/doi/10.1021/j100007a062">Klamt</a> specifies that an effective segment radius of 1 Å (angstrom) works well. The formula is: <br></p>
+<p><span class="math notranslate nohighlight">\(n_{x} =A_x/A_eff \)</span> <br></p>
+<p>By averaging the surface charge densities over typical contact segments of molecules, we can obtain a probability function <span class="math notranslate nohighlight">\(p_x(\sigma)\)</span> i.e. <strong>σ-profile</strong>, which is like a histogram that shows the distribution of the screening charge density over the molecule’s surface. For solvents that contain mulitple components, the σ-profile is the weighted sum of the component’s profiles:</p>
+<p><span class="math notranslate nohighlight">\(p_S(\sigma) = \Sigma x_i n^x_i p^X_i(\sigma) / \Sigma x_in^x_i \)</span></p>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> is our molar concentration</p></li>
+<li><p><span class="math notranslate nohighlight">\(n^x\)</span> is the contact segment</p></li>
+<li><p><span class="math notranslate nohighlight">\(p^X_i(\sigma)\)</span> is the effective probability function, which calculates the probability of finding an average <span class="math notranslate nohighlight">\(\sigma\)</span>  on a typical contact segment</p></li>
+</ul>
+</section>
+<section id="real-fluids-vs-ideal-ones">
+<h2>Real fluids vs ideal ones 💧<a class="headerlink" href="#real-fluids-vs-ideal-ones" title="Link to this heading">#</a></h2>
+<p>As mentioned, fluids are being visualized as ideally screened where two segments with opposite surface charge densities interact perfectly so their net energy is zero. However, with real fluids it is not possible due to entropy and the non-ideal nature of molecular interactions; therefore, they do not cancel perfectly each other’s charges. These non-ideal parings result in a <strong>“misfit energy”</strong>.</p>
+<p>The misfit energy represents the interaction energy of two neighboring segments with unequal surface charges. This situation occurs because the solute’s surface segments pair with neutral surface segments, resulting in a mismatch or misfit energy that balances the non-ideal screening. The misfit energy quantifies the interaction energy of two segments next to one another with radius <span class="math notranslate nohighlight">\(R_{eff}\)</span> and surface charges <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2\)</span>. Since we are considering our solute unscreened, the total misfit energy is equal to the negative of the ideal screening energy. The total misfit energy is given by:</p>
+<p><span class="math notranslate nohighlight">\( E^x_{mf} = 1/2 \alpha \Sigma \sigma_v^2 = 1/2 \alpha N^x \int p^x(\sigma)\sigma^2 d\sigma\)</span></p>
+<p>with <span class="math notranslate nohighlight">\(α=1.2π^{5/2}R_{eff}^3/(4πϵ_0)\)</span> a constant that scales the interaction energy based on the geometry and properties of the segments</p>
+</section>
+<section id="molecular-arrangements-the-ground-state">
+<h2>Molecular arrangements &amp; the Ground State 🧩<a class="headerlink" href="#molecular-arrangements-the-ground-state" title="Link to this heading">#</a></h2>
+<p>The arrangement of the surface segments is limited by the shapes of the molecules; however, to simplify the calculations COSMO-RS neglects these constraints, meaning that the segments are treated as if they can pair freely. This ‘decoupling’ allows the liquid to be modeled as a collection of <span class="math notranslate nohighlight">\(N\)</span> segments, each with a surface charge density, <span class="math notranslate nohighlight">\(\sigma\)</span>. The distribution of these segments is what we call the σ-profile, <span class="math notranslate nohighlight">\(p_s\)</span>. Each segment pairs with another segment so we have N/2 pairs and (N/2)! combinations. <br><br>
+Klamt further explains the <strong>ground state of decoupled segments</strong> which is the arrangement of segments that results in the <strong>lowest misfit energy</strong>. This is achieved by ordering and pairing the segments with its correspoinding positive and negative charges <span class="math notranslate nohighlight">\((\sigma_i + \sigma_{-i})\)</span>. The ground state misfit energy indicates how well a fluid can screen its own molecules, ∴ a <strong>lower</strong> misfit energy means a <strong>better</strong> screening. The ground state misfit energy is given by the following equation:</p>
+<p><span class="math notranslate nohighlight">\( E_s^{GS} = 1/2\alpha'\sum_{i=1}^{N/2}(\sigma_i + \sigma_-i)^2\)</span></p>
+<br>
+</div>
+<p>In the examples section, we are gonna see the σ-profiles and analize them in depth to get a better understanding of the theory.
+<br><br></p>
+</section>
+<section id="what-is-opencosmo-rs">
+<h2>What is openCOSMO-RS ❓<a class="headerlink" href="#what-is-opencosmo-rs" title="Link to this heading">#</a></h2>
+<div style="line-height: 1.5;">
+<p>This model <strong><span style="color:#FF6347;">improves the predictive accuracy</span></strong> of the fluid phase thermodynamics by incorporating <strong><span style="color:#4682B4;">multiple segmental descriptors</span></strong>. The screening charge density <strong><span class="math notranslate nohighlight">\(\sigma\)</span></strong> is still the main descriptor, but additional ones such as the <strong>polarity counterpart</strong> screening charge density, <strong><span class="math notranslate nohighlight">\(\sigma_⊥\)</span></strong>, are now being used to improve the model.  It is calculated by the formula below:</p>
+<p><span class="math notranslate nohighlight">\(\sigma⊥ = \sigma_\alpha - 0.816\sigma_\alpha^0 \)</span></p>
+<p>Additional characteristics of the model:</p>
+<ul class="simple">
+<li><p><strong><span style="color:#FF4500;">Open Source</span></strong>: it allows people in the academic community to use, evaluate and develop the model <br></p></li>
+<li><p><strong><span style="color:#1E90FF;">Extended σ-Profile Generation</span></strong>: the new algorithm includes multiple segment descriptors in addition to the screening charge density, as mentioned above. <br></p></li>
+<li><p><strong><span style="color:#3CB371;">RDKit/ORCA Workflow</span></strong>: It uses RDKit to generate conformers and ORCA for quantum chemical calculations, which makes it easier for more academic users to implement <br></p></li>
+<li><p>The model includes <strong><span style="color:#DAA520;">dispersion interactions</span></strong>, which are weak forces that add to the overall energy of molecules. In its simplest form, these interactions add up based on the elements involved, meaning they don’t depend on specific contacts between segments. <br></p></li>
+<li><p><strong><span style="color:#9370DB;">Correction to the screening charge correlation</span></strong>: this correction involves an additional descriptor, denoted as σ⊥, which is derived from the screening charge density. This descriptor is used to refine the electrostatic interaction energy calculations. In a molecule, the electrostatic forces play a crucial role in determining how molecules interact with each other - the charge in one area can influence the charge in another area and determine if molecules will come together or move apart</p></li>
+</ul>
+<p>More information about its implementation can be found <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378381222000954">here</a>.</p>
+<section id="opencosmo-rs-24a">
+<h3>openCOSMO-RS 24a 💫<a class="headerlink" href="#opencosmo-rs-24a" title="Link to this heading">#</a></h3>
+<p>The openCOSMO-RS 24a is a new and improved version of the open-source COSMO-RS model. This version is designed to predict <strong>solvation free energies</strong> using quantum chemical calculations from ORCA. More information about it can be found <a class="reference external" href="https://doi.org/10.1016/j.fluid.2024.114250">here</a></p>
+</section>
+<section id="what-is-the-solvation-free-energy-gsolv">
+<h3>What is the solvation free energy, ΔGsolv? ⚡<a class="headerlink" href="#what-is-the-solvation-free-energy-gsolv" title="Link to this heading">#</a></h3>
+<p>It is the amount of energy involved when a solute dissolves in a solvent. It is the energy change that occurs when the particles of the solute are surrounded and stabilized by the solvent molecules. This energy can be absorbed or released. It is a contributing factor in predicting how substances will behave in a solution. <br></p>
+<p>A positive solvation free energy value shows that the process is not energetically favourable. This means that the solute wants to stay in the gas phase, whereas a negative value shows that the process is energetically favourable, meaning that the solute prefers to be in the solvent.</p>
+<div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">⚛️ openCOSMO-RS Guide ⚛️</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conformer%20pipeline.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. openCOSMO-RS_conformer_pipeline 📏</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bit-of-history">A bit of history 📜</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmo-rs-comes-into-play">COSMO-RS comes into play 🎲</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-profiles">The σ-profiles 📊</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-fluids-vs-ideal-ones">Real fluids vs ideal ones 💧</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-arrangements-the-ground-state">Molecular arrangements &amp; the Ground State 🧩</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-opencosmo-rs">What is openCOSMO-RS ❓</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opencosmo-rs-24a">openCOSMO-RS 24a 💫</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-solvation-free-energy-gsolv">What is the solvation free energy, ΔGsolv? ⚡</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Priscilla Ensley, Simon Müller, Edgar Sanchez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
