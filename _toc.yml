@@ -1,0 +1,18 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: notebooks/1/opencosmorsintro.ipynb
+    sections:
+      - file: notebooks/1/conformer pipeline.ipynb
+      - file: notebooks/2/Github repository.ipynb
+      - file: notebooks/3/Overview conf pipe.ipynb
+      - file: notebooks/4/Input file.ipynb
+      - file: notebooks/5/Call program.ipynb
+      - file: notebooks/6/Analysis input file.ipynb
+        sections:
+          - file: notebooks/6/overview.ipynb
+  - file: notebooks/7/github_opencosmors.ipynb
+    sections:
+      - file: notebooks/7/firstexamples.ipynb
+      - file: notebooks/7/ResultsAnalysis.ipynb
