@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.1 What is in our input file? 👀 &#8212; openCOSMO-RS Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/6/overview';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="II. openCOSMO-RS" href="../7/github_opencosmors.html" />
+    <link rel="prev" title="6. Analysis of the Calculations and the Input File 🔎" href="Analysis%20input%20file.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="openCOSMO-RS Book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="openCOSMO-RS Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    ⚛️ openCOSMO-RS Guide ⚛️
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../1/opencosmorsintro.html">I. What is COSMO-RS ❓</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1/conformer%20pipeline.html">1. openCOSMO-RS_conformer_pipeline 📏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2/Github%20repository.html">2. Github repository download  💡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3/Overview%20conf%20pipe.html">3. Overview of the openCOSMO-RS_conformer_pipeline  🔍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4/Input%20file.html">4. Let’s create the input file 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5/Call%20program.html">5. Calling the openCOSMO-RS_conformer_pipeline program! 🤖</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="Analysis%20input%20file.html">6. Analysis of the Calculations and the Input File 🔎</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">6.1 What is in our input file? 👀</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../7/github_opencosmors.html">II. openCOSMO-RS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../7/firstexamples.html">2. First Examples 🔬</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../7/ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/6/overview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/6/overview.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6.1 What is in our input file? 👀</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-tzvpd">6.1.2 What is TZVPD ❓</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmo-tzvpd">6.1.3 COSMO_TZVPD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-tzvpd">6.1.4 energy_TZVPD  📂</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-in-our-input-file">
+<h1>6.1 What is in our input file? 👀<a class="headerlink" href="#what-is-in-our-input-file" title="Link to this heading">#</a></h1>
+<br><p>If you go to the repository program, you should see that a new folder with the name of the molecule was created. For the example that we ran, the folder should be called “water”. The following archives can be found:</p>
+<ul class="simple">
+<li><p><strong>COSMO_TZVPD</strong> folder</p></li>
+<li><p><strong>energy_TZVPD</strong> folder</p></li>
+</ul>
+<section id="what-is-tzvpd">
+<h2>6.1.2 What is TZVPD ❓<a class="headerlink" href="#what-is-tzvpd" title="Link to this heading">#</a></h2>
+<p>TZVPD stands for <strong>Triple-Zeta Valence with Polarization and Diffuse functions</strong>.  It is a type of <strong>basis set</strong> used in quantum chemistry calculations, in this case is used by the ORCA software. Basis sets are important in computational chemistry because they define the set of functions used to describe the electronic wave function of molecules. They are a collection of functions used to create and model the molecular orbitals of a system.</p>
+<div style="line-height: 1.5;">
+<ul class="simple">
+<li><p><strong><span style="color:#BA55D3;">Triple-Zeta (TZ):</span></strong> it means that <strong>three</strong> functions are used to describe each valence orbital, providing a more accurate representation compared to single-zeta or double-zeta basis sets. The valence orbitals are the outermost orbitals of an atom that are involved in chemical bonding. The different types of valence orbitals are s, p, d and sometimes f.</p></li>
+<li><p><strong><span style="color:#4682B4;">Valence:</span></strong> it refers to the valence electrons</p></li>
+<li><p><strong><span style="color:#3CB371;">Polarization (P):</span></strong> adds extra features to account for how the electron cloud is distorted by the molecular environment, improving the accuracy of the calculations.</p>
+<ul>
+<li><p>Think about a water molecule (H₂O). The oxygen atom has s and p orbitals that help it bond with hydrogen. When it forms bonds with hydrogen, the electron cloud around oxygen can become distorted. Adding polarization functions (e.g. d-type functions for oxygen) can help us model this distortion better.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:#DAA520;">Diffuse (D):</span></strong> includes extra functions that are more spread out in space. These are important for accurately describing anions and systems with weakly bound electrons.</p>
+<ul>
+<li><p>Think about a chloride ion (Cl⁻). The extra electron in Cl⁻ is not as tightly bound as the electrons in a neutral chlorine atom. To describe this loosely bound electron correctly, we add special functions (e.g., additional s and p functions with larger exponents) to the basis set. This allows the basis set to capture the electron’s extended distribution.</p></li>
+</ul>
+</li>
+</ul>
+<p>You can find more about it in the <a class="reference external" href="https://sites.google.com/site/orcainputlibrary/basis-sets">Orca documentation</a></p>
+<div>
+</section>
+<section id="cosmo-tzvpd">
+<h2>6.1.3 COSMO_TZVPD<a class="headerlink" href="#cosmo-tzvpd" title="Link to this heading">#</a></h2>
+<div style="line-height: 1.5;">
+<p>Opening the folder we see two files: <strong>water_c000</strong> and <strong>log_output</strong>. The latter contains all details of the ORCA program and the steps taken to perform the necessary calculations to produce the <em>.orcacosmo</em> file.</p>
+<p>Let’s analyze  what the <em>water_c000</em> file has:</p>
+<ul class="simple">
+<li><p><strong><span style="color:#DB7093;">ENERGY:</span></strong> <br>
+This is the energy obtained with the CPCM calculations i.e. as an ideal conductor in a.u. (atomic units).</p></li>
+<li><p><strong><span style="color:#3CB371;">DIPOLE MOMENT:</span></strong> <br>
+The values represent the x, y, and z components of the dipole moment vector. The dipole moment is defined as a vector quantity that quantifies the separation between positive and negative charges within a molecule.<br></p></li>
+<li><p><strong><span style="color:#20B2AA;">XYZ_FILE:</span></strong><br>
+Coordinates form the ORCA job. Here we can see the number of atoms (for water = 3) and the cartesian coordinates (x,y,z) in Angstroms.<br></p></li>
+<li><p><strong><span style="color:#CD853F;">COSMO:</span></strong><br>
+Molecule characteristics (no. of atoms, surface points), surface and epsilon function types (how the molecular surface is constructed for the COSMO calculations), the dielectric constant of the solvent, (measures the ability to reduce the electrostatic interactions between charged particles). Furthermore, we have the dielectric energy, (the total energy that we need to submerge our molecule from the gas phase to the CPCM phase)<br></p></li>
+<li><p><strong><span style="color:#9370DB;">Cartesian Coordinates, RADII and Atomic Number:</span></strong> <br>
+Cartesian coordinates in atomic units (a.u.), atomic radii, and atomic numbers for each atom in the molecule.<br></p></li>
+<li><p><strong><span style="color:#FF6347;">Surface points:</span></strong> <br>
+This section has the following columns</p>
+<ul>
+<li><p>3D coordinates of the center of the area.</p></li>
+<li><p>the area of our segments</p></li>
+<li><p>the chemical potential of the segment</p></li>
+<li><p>w_leb, Switch_F and G_with are part of the ORCA algorithm to generate the position of the segments and its properties</p></li>
+<li><p>the indices of the atoms (for water, three atoms ∴ 0, 1, 2 )
+<br><br></p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:#BC8F8F;">COSMO_corrected:</span></strong>  <br>
+Corrected values for the dielectric energy and the CPCM charges after distributing the molecule’s charge between the cavities. A cavity is like a bubble surrounding the whole molecule. For some bigger atoms that have a higher charge, the electrons might be outside of the cavity, also known as outlying charge. To better represent how the molecule’s electron distribution looks, ORCA implemented a correction where they distributed the outlying charge throughout the whole cavity <br></p></li>
+</ul>
+<p><img alt="before" src="../../_images/4.png" /> <img alt="after" src="../../_images/5.png" /></p>
+<ul class="simple">
+<li><p><strong><span style="color:#8B4513;">Adjacency matrix:</span></strong>  <br>
+The connections between atoms of the molecule. Node 0 represents the oxygen atom and nodes 1 and 2 the two hydrogen atoms.</p></li>
+</ul>
+<div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#⚠️⚠️⚠️</span>
+<span class="n">water_c000</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\water\COSMO_TZVPD\water_c000.orcacosmo&quot;</span>
+
+<span class="c1"># Open and read the .orcacosmo file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">water_c000</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Print the contents</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">water_c000</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\water\COSMO_TZVPD\water_c000.orcacosmo&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Open and read the .orcacosmo file</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">water_c000</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">contents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Print the contents</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python312\site-packages\IPython\core\interactiveshell.py:324,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">324</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;C:\\Users\\prisc\\Desktop\\orcacosmo_files\\water\\COSMO_TZVPD\\water_c000.orcacosmo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="energy-tzvpd">
+<h2>6.1.4 energy_TZVPD  📂<a class="headerlink" href="#energy-tzvpd" title="Link to this heading">#</a></h2>
+<p>The folder contains an <em>xyz</em> file with the same name: water_c000:</p>
+<ul class="simple">
+<li><p><strong><span style="color:#9370DB;">Number of Atoms</span></strong>: The first line 3 indicates that the number of atoms in our molecule</p></li>
+<li><p><strong><span style="color:#FF6347;">Energy</span></strong>: The energy of the molecule in the gas phase</p></li>
+<li><p><strong><span style="color:#3CB371;">Atomic Coordinates</span></strong>: atomic symbols and their Cartesian coordinates in space. Each line corresponds to an atom.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ⚠️⚠️⚠️</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\water\energy_TZVPD\water_c000.xyz&quot;</span>
+<span class="c1"># Open and read the .orcacosmo file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">energy</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Print the contents</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+energy: -76.4684885136930035
+O  -0.0007809143160200  0.3969563993601200  0.0000000000000000
+H  -0.7671274283801700  -0.1999882198486500  0.0000000000000000
+H  0.7679083426961900  -0.1969681795114700  0.0000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks\6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Analysis%20input%20file.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6. Analysis of the Calculations and the Input File 🔎</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../7/github_opencosmors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">II. openCOSMO-RS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-tzvpd">6.1.2 What is TZVPD ❓</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosmo-tzvpd">6.1.3 COSMO_TZVPD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-tzvpd">6.1.4 energy_TZVPD  📂</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Priscilla Ensley, Simon Müller, Edgar Sanchez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
