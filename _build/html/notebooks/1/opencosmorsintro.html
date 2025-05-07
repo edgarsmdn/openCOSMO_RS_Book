@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -468,14 +468,13 @@ Klamt further explains the <strong>ground state of decoupled segments</strong> w
 <section id="what-is-opencosmo-rs">
 <h2>What is openCOSMO-RS ❓<a class="headerlink" href="#what-is-opencosmo-rs" title="Link to this heading">#</a></h2>
 <div style="line-height: 1.5;">
-<p>This model <strong><span style="color:#FF6347;">improves the predictive accuracy</span></strong> of the fluid phase thermodynamics by incorporating <strong><span style="color:#4682B4;">multiple segmental descriptors</span></strong>. The screening charge density <strong><span class="math notranslate nohighlight">\(\sigma\)</span></strong> is still the main descriptor, but additional ones such as the <strong>polarity counterpart</strong> screening charge density, <strong><span class="math notranslate nohighlight">\(\sigma_⊥\)</span></strong>, are now being used to improve the model.  It is calculated by the formula below:</p>
+<p>This model <strong><span style="color:#FF6347;">improves the predictive accuracy</span></strong> of the fluid phase thermodynamics by incorporating <strong><span style="color:#4682B4;">multiple segmental descriptors</span></strong>. The screening charge density <strong><span class="math notranslate nohighlight">\(\sigma\)</span></strong> is still the main descriptor, but additional ones such as the <strong>polarity counterpart</strong> screening charge density introduced by Andreas Klamt, <strong><span class="math notranslate nohighlight">\(\sigma_⊥\)</span></strong>, are now being used to improve the model.  It is calculated by the formula below:</p>
 <p><span class="math notranslate nohighlight">\(\sigma⊥ = \sigma_\alpha - 0.816\sigma_\alpha^0 \)</span></p>
-<p>Additional characteristics of the model:</p>
+<p>Some additional characteristics of the model:</p>
 <ul class="simple">
 <li><p><strong><span style="color:#FF4500;">Open Source</span></strong>: it allows people in the academic community to use, evaluate and develop the model <br></p></li>
 <li><p><strong><span style="color:#1E90FF;">Extended σ-Profile Generation</span></strong>: the new algorithm includes multiple segment descriptors in addition to the screening charge density, as mentioned above. <br></p></li>
 <li><p><strong><span style="color:#3CB371;">RDKit/ORCA Workflow</span></strong>: It uses RDKit to generate conformers and ORCA for quantum chemical calculations, which makes it easier for more academic users to implement <br></p></li>
-<li><p>The model includes <strong><span style="color:#DAA520;">dispersion interactions</span></strong>, which are weak forces that add to the overall energy of molecules. In its simplest form, these interactions add up based on the elements involved, meaning they don’t depend on specific contacts between segments. <br></p></li>
 <li><p><strong><span style="color:#9370DB;">Correction to the screening charge correlation</span></strong>: this correction involves an additional descriptor, denoted as σ⊥, which is derived from the screening charge density. This descriptor is used to refine the electrostatic interaction energy calculations. In a molecule, the electrostatic forces play a crucial role in determining how molecules interact with each other - the charge in one area can influence the charge in another area and determine if molecules will come together or move apart</p></li>
 </ul>
 <p>More information about its implementation can be found <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378381222000954">here</a>.</p>

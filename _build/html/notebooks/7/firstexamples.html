@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -555,6 +555,65 @@ Aftwards you should see two more folders: pentane and butane.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">model</span><span class="o">.</span><span class="n">clear_molecules</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Add the new molecules to the model</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">model</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">([</span><span class="n">butane_input</span><span class="p">])</span> <span class="c1">#molecule number 1</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">model</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">([</span><span class="n">water_input</span><span class="p">])</span> <span class="c1">#molecule number 2</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">#Add the mole fractions</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#This is the mole fraction array for the mixture we are analyzing, the first number corresponds to butane and the second one to water</span>
+
+<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\cosmors.py:97,</span> in <span class="ni">COSMORS.add_molecule</span><span class="nt">(self, filepath_lst)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd"> Add a molecule to the model class</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_jobs</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">97</span> <span class="bp">self</span><span class="o">.</span><span class="n">enth</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">(</span><span class="n">filepath_lst</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="n">A_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mol</span><span class="o">.</span><span class="n">get_area</span><span class="p">()</span> <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">enth</span><span class="o">.</span><span class="n">mol_lst</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="bp">self</span><span class="o">.</span><span class="n">comb</span><span class="o">.</span><span class="n">set_area_array</span><span class="p">(</span><span class="n">A_arr</span><span class="p">)</span>
+
+<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\cosmors.py:586,</span> in <span class="ni">COSMORSEnthalpic.add_molecule</span><span class="nt">(self, filepath_lst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="k">def</span> <span class="nf">add_molecule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath_lst</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span><span class="sd">     Add a molecule to the object</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mol_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Molecule</span><span class="p">(</span><span class="n">filepath_lst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">qc_program</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span>     <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol_lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="n">mol</span><span class="o">.</span><span class="n">convert_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">r_av</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">mf_r_av_corr</span><span class="p">)</span>
+
+<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\molecules.py:33,</span> in <span class="ni">Molecule.__init__</span><span class="nt">(self, filepath_lst, qc_program)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepath_lst</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">33</span>     <span class="n">cosmo_info</span> <span class="o">=</span> <span class="n">SigmaProfileParser</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">qc_program</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">COSMOStruct</span><span class="p">(</span><span class="n">cosmo_info</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\input_parsers.py:57,</span> in <span class="ni">SigmaProfileParser.__init__</span><span class="nt">(self, filepath, qc_program, calculate_averaged_sigmas)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_read_turbomolesp</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">elif</span> <span class="n">qc_program</span> <span class="o">==</span> <span class="s2">&quot;orca&quot;</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_read_orcasp</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown QC file format: </span><span class="si">{</span><span class="n">qc_program</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\input_parsers.py:532,</span> in <span class="ni">SigmaProfileParser._read_orcasp</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="k">def</span> <span class="nf">_read_orcasp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">532</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;filepath&quot;</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">orcasp_file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>         <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">orcasp_file</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nn">    535         self[&quot;name&quot;], self[&quot;method&quot;] = (entry.strip() for entry</span> in <span class="ni">line.split</span><span class="nt">(&quot;:&quot;))</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;C:\\Users\\prisc\\Desktop\\orcacosmo_files\\butane\\COSMO_TZVPD\\butane_c000.orcacosmo&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div style="line-height: 1.5;">
 <p>Now we can perform the job, the formula for it is: <br></p>
@@ -788,7 +847,7 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ef0bd7e8ea6c99f0ae2d62daf94c93bf5cbb802721489bb8b63853e5c5ef3038.png" src="../../_images/ef0bd7e8ea6c99f0ae2d62daf94c93bf5cbb802721489bb8b63853e5c5ef3038.png" />
+<img alt="../../_images/c10b61f98cdbcbc70c9d6f5fb712f7811d38a6152478cb08be34fceffa95a4af.png" src="../../_images/c10b61f98cdbcbc70c9d6f5fb712f7811d38a6152478cb08be34fceffa95a4af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -958,7 +1017,7 @@ Combinatorial logarithmic activity coefficient: [[-0.32038643  0.        ]
  [-0.04942021 -0.07665708]]
 </pre></div>
 </div>
-<img alt="../../_images/311ef83a053338fbab66d2ccc482201ede7d2f7faecb804ecf3f77167f35d0fa.png" src="../../_images/311ef83a053338fbab66d2ccc482201ede7d2f7faecb804ecf3f77167f35d0fa.png" />
+<img alt="../../_images/24ccc01fffe89ff86fd02006b382d14a1300585355070438ca7219ab7a4e0637.png" src="../../_images/24ccc01fffe89ff86fd02006b382d14a1300585355070438ca7219ab7a4e0637.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptors for ethanol
 energy_dielectric -25.10678663745665
 dipole_moment [-0.047311 -2.168231 -0.003471]
@@ -971,7 +1030,7 @@ sigma_hydrogen_bond_acceptor_moments [4.83881932 2.87393992 1.31282655]
 -----------------------------------------------
 </pre></div>
 </div>
-<img alt="../../_images/b844cc4246ce59376d5867d29a1ece78e9f92a58b3599db7ee52a827513fac73.png" src="../../_images/b844cc4246ce59376d5867d29a1ece78e9f92a58b3599db7ee52a827513fac73.png" />
+<img alt="../../_images/d161c785cc1736d87cd2b13a00d04a54c188e639573eb85e181ecb9447f5b06e.png" src="../../_images/d161c785cc1736d87cd2b13a00d04a54c188e639573eb85e181ecb9447f5b06e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptors for water
 energy_dielectric -32.88772262001589
 dipole_moment [ 4.500000e-05 -2.302853e+00  0.000000e+00]
@@ -1061,18 +1120,10 @@ sigma_hydrogen_bond_acceptor_moments [5.77724896 3.3268231  1.38458782]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solubility of acetaminophen/paracetamol in
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>water           non-iter calc: 0.00068 iter calc: 0.00012 exp: 0.00207
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ethanol         non-iter calc: 0.09563 iter calc: 0.06122 exp: 0.06624
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>acetic_acid     non-iter calc: 0.06210 iter calc: 0.04727 exp: 0.03182
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
+water           non-iter calc: 0.00068 iter calc: 0.00012 exp: 0.00207
+ethanol         non-iter calc: 0.09563 iter calc: 0.06122 exp: 0.06624
+acetic_acid     non-iter calc: 0.06210 iter calc: 0.04727 exp: 0.03182
+cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1230,7 @@ sigma_hydrogen_bond_acceptor_moments [5.77724896 3.3268231  1.38458782]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solvation energy of ethanol in benzene in kcal/mol: -3.116283418975341
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solvation energy of ethanol in benzene in kcal/mol: -3.116283419034712
 </pre></div>
 </div>
 </div>
