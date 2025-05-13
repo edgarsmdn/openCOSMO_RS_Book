@@ -197,7 +197,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../7/firstexamples.html">2. First Examples 🔬</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../7/ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
 </ul>
 </details></li>
 </ul>
@@ -395,8 +394,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">5.1 Using the terminal 💻</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python">5.1 Using Python 🤖</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-consider">🛑 Things to consider 🛑</a></li>
 </ul>
             </nav>
@@ -412,7 +409,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="calling-the-opencosmo-rs-conformer-pipeline-program">
 <h1>5. Calling the openCOSMO-RS_conformer_pipeline program! 🤖<a class="headerlink" href="#calling-the-opencosmo-rs-conformer-pipeline-program" title="Link to this heading">#</a></h1>
 <br>
-Explanation of the code:
+<p><strong>Explanation of the code:</strong></p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">ConformerGenerator.py</span> <span class="pre">--structures_file</span> <span class="pre">file.inp</span> <span class="pre">--cpcm_radii</span> <span class="pre">cpcm_radii.inp</span> <span class="pre">--n_cores</span> <span class="pre">2</span></code></strong></p>
 <ul class="simple">
 <li><p><span style="color:#CD5C5C;">ConformerGenerator.py</span> is code to produce the files</p></li>
@@ -420,64 +417,31 @@ Explanation of the code:
 <li><p><span style="color:#20B2AA;">cpcm_radii.inp</span> specifies the radius size of the atoms</p></li>
 <li><p><span style="color:#B0C4DE;">n_cores 2</span> specifies the number of CPU cores to be used for the execution of the script.</p></li>
 </ul>
-<section id="using-the-terminal">
-<h2>5.1 Using the terminal 💻<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h2>
 <ol class="arabic">
 <li><p>Go to the terminal / command prompt in your computer and go to the directory where the repository is using the following command line:</p>
-<p>cd”<span style="color:SteelBlue">C:\Users\xx\xx\openCOSMO-RS_conformer_pipeline</span>”</p>
+<p><strong>cd”<span style="color:SteelBlue">C:\Users\xx\xx\openCOSMO-RS_conformer_pipeline</span>”</strong></p>
 <p><em>Remember to change the <span style="color:SteelBlue">address</span> to the one where you have the program located</em>
 <br><br></p>
 </li>
 <li><p>Call the program:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">ConformerGenerator.py</span> <span class="pre">--structures_file</span> <span class="pre">file.inp</span> <span class="pre">--cpcm_radii</span> <span class="pre">cpcm_radii.inp</span> <span class="pre">--n_cores</span> <span class="pre">2</span></code></p>
-<p><em>Remember to change the name of our <span style="color:SteelBlue">file.inp</span> to the one we saved, in this case let’s use:</em> <strong>water.inp</strong>
+<p><strong>python <a class="reference external" href="http://ConformerGenerator.py">ConformerGenerator.py</a> –structures_file file.inp –cpcm_radii cpcm_radii.inp –n_cores 2</strong>
 <br><br></p>
+<ul class="simple">
+<li><p><em>Remember to change the name of our <span style="color:SteelBlue">file.inp</span> to the one we saved, in this case let’s use:</em> <strong>water.inp</strong>  <br><br></p></li>
+<li><p><em>Since our file is in a different directory than our program, we need to specify the whole address</em>
+<br><br></p></li>
+</ul>
 </li>
-<li><p>Click enter and you will see a series of steps where it explains that the program is running, at the end you should see the words <em>La fin</em>. That means that the program ran completely and there were no issues.</p></li>
+<li><p>Click enter and you will see a series of steps where it explains that the program is running, at the end you should see the words <em><strong>La fin</strong></em>. That means that the program ran completely and there were no issues.
+<br><br><br></p></li>
 </ol>
-</section>
-<section id="using-python">
-<h2>5.1 Using Python 🤖<a class="headerlink" href="#using-python" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># Change the current working directory where our ConformerGenerator program is as well as our input file! </span>
-<span class="c1"># ⚠️⚠️⚠️</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline&quot;</span><span class="p">)</span>
-
-<span class="c1">#Let&#39;s separate the code into sections</span>
-<span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;python&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;ConformerGenerator.py&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;--structures_file&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;water.inp&quot;</span><span class="p">,</span> <span class="c1">#here you can modify the name to any file you&#39;ve created</span>
-    <span class="s2">&quot;--cpcm_radii&quot;</span><span class="p">,</span> <span class="s2">&quot;cpcm_radii.inp&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;--n_cores&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span>
-<span class="p">]</span>
-
-<span class="c1"># Execute the command</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Print the output and errors</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CompletedProcess(args=[&#39;python&#39;, &#39;ConformerGenerator.py&#39;, &#39;--structures_file&#39;, &#39;water.inp&#39;, &#39;--cpcm_radii&#39;, &#39;cpcm_radii.inp&#39;, &#39;--n_cores&#39;, &#39;2&#39;], returncode=1, stdout=&#39;&#39;, stderr=&#39;Traceback (most recent call last):\n  File &quot;C:\\Users\\prisc\\Desktop\\openCOSMO-RS_conformer_pipeline\\ConformerGenerator.py&quot;, line 1574, in &lt;module&gt;\n    with ConformerGenerator(\n         ^^^^^^^^^^^^^^^^^^^\n  File &quot;C:\\Users\\prisc\\Desktop\\openCOSMO-RS_conformer_pipeline\\ConformerGenerator.py&quot;, line 360, in __init__\n    self._setup_folder()\n  File &quot;C:\\Users\\prisc\\Desktop\\openCOSMO-RS_conformer_pipeline\\ConformerGenerator.py&quot;, line 541, in _setup_folder\n    if not last_step_dir:\n           ^^^^^^^^^^^^^\nUnboundLocalError: cannot access local variable \&#39;last_step_dir\&#39; where it is not associated with a value\n&#39;)
-Output: 
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+<p><strong>Here is an example of how it should look like:</strong></p>
+<p><img alt="terminal" src="../../_images/example_program_terminal.png" /></p>
 <section id="things-to-consider">
 <h2>🛑 Things to consider 🛑<a class="headerlink" href="#things-to-consider" title="Link to this heading">#</a></h2>
 <div style="line-height: 1.5;">
-<p>If you go to the repository, you will see a folder with the name of the molecule we created. <strong>Before running the code again</strong>, drag the file outside the folder and save it in another folder where all the .orcacosmo files are gonna be. I recommend doing this <strong>also</strong> for the <strong>input files</strong>, so we have everything in order. Afterwards, you can run the program again with the other input file we created:  two_molecules.inp</p>
+<p>If you go to the <strong>openCOSMO-RS repository</strong>, you will see a folder with the name of the molecule we created, in this case <em>water</em>.</p>
+<p><strong>Before running the code again</strong>, drag the file outside the folder and save it in another folder where all the .orcacosmo files are gonna be, so we have everything in order. Afterwards, you can run the program again with the other input file we created:  two_molecules.inp</p>
 <div></section>
 </section>
 
@@ -545,8 +509,6 @@ Output:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">5.1 Using the terminal 💻</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python">5.1 Using Python 🤖</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-consider">🛑 Things to consider 🛑</a></li>
 </ul>
   </nav></div>

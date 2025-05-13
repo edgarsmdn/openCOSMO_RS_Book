@@ -1,0 +1,34 @@
+COSMORS Results
+================
+Mole Fractions (x):
+[[0. 1.]]
+
+Temperature (T):
+[298.15]
+
+Total Results (tot):
+lng: [[9.51405683 0.        ]]
+
+Enthalpic Results (enth):
+lng: [[10.2943666  0.       ]]
+aim_E_mf: [[8287.04155738    0.        ]]
+aim_tau: [[-2.0774473  0.       ]]
+aim_sigma_mf_abs: [[0.03243358 0.        ]]
+aim_sigma_mf: [[-0.00826911  0.        ]]
+aim_E_int: [[8287.04155738    0.        ]]
+aim_A_hb: [[0. 0.]]
+aim_E_hb: [[0. 0.]]
+aim_A_int: [[8287.04155738    0.        ]]
+aim_A_mf: [[8287.04155738    0.        ]]
+pm_E_mf: [[9011.76786362    0.        ]]
+pm_tau: [[1.63196745 0.        ]]
+pm_sigma_mf_abs: [[0.03628636 0.        ]]
+pm_sigma_mf: [[-9.18908672e-08  0.00000000e+00]]
+pm_E_int: [[12605.39449932     0.        ]]
+pm_A_hb: [[1437.45065428    0.        ]]
+pm_E_hb: [[3593.62663571    0.        ]]
+pm_A_int: [[10449.2185179     0.       ]]
+pm_A_mf: [[9011.76786362    0.        ]]
+
+Combinatorial Results (comb):
+lng: [[-0.78030977  0.        ]]

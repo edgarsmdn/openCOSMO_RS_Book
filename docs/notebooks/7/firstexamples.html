@@ -63,7 +63,6 @@
     <link rel="canonical" href="/openCOSMO_RS_Book/notebooks/7/firstexamples.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3 Results Analysis 🔍" href="ResultsAnalysis.html" />
     <link rel="prev" title="II. openCOSMO-RS" href="github_opencosmors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -199,7 +198,6 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2. First Examples 🔬</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
 </ul>
 </details></li>
 </ul>
@@ -471,18 +469,23 @@ Aftwards you should see two more folders: pentane and butane.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let&#39;s now create the folder where we are going to save all of our results</span>
-<span class="c1"># ⚠️⚠️⚠️</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\Results_openCOSMO&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;Results_openCOSMO&quot;</span>
+<span class="c1">#then create the folder where our files are gonna be, for this line to work we need to make sure that the folder does not exist!</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#then create the folder where our files are gonna be, for this line to work we need to make sure that the folder does not exist!</span>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;Results_openCOSMO&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#then create the folder where our files are gonna be, for this line to work we need to make sure that the folder does not exist!</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
 
-<span class="c1">#os.makedirs(output_dir)</span>
+<span class="nn">File &lt;frozen os&gt;:225,</span> in <span class="ni">makedirs</span><span class="nt">(name, mode, exist_ok)</span>
+
+<span class="ne">FileExistsError</span>: [WinError 183] Cannot create a file when that file already exists: &#39;Results_openCOSMO&#39;
 </pre></div>
 </div>
 </div>
@@ -491,9 +494,9 @@ Aftwards you should see two more folders: pentane and butane.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#input files⚠️⚠️⚠️</span>
-<span class="n">water_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\water\COSMO_TZVPD\water_c000.orcacosmo&quot;</span>
-<span class="n">butane_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\butane\COSMO_TZVPD\butane_c000.orcacosmo&quot;</span>
-<span class="n">pentane_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\pentane\COSMO_TZVPD\pentane_c000.orcacosmo&quot;</span>
+<span class="n">water_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\water_c000.orcacosmo&quot;</span>
+<span class="n">butane_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\butane_c000.orcacosmo&quot;</span>
+<span class="n">pentane_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\pentane_c000.orcacosmo&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -553,65 +556,6 @@ Aftwards you should see two more folders: pentane and butane.</p>
 
 <span class="c1">#set the temperature in K</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mf">298.15</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">model</span><span class="o">.</span><span class="n">clear_molecules</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Add the new molecules to the model</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">model</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">([</span><span class="n">butane_input</span><span class="p">])</span> <span class="c1">#molecule number 1</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">model</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">([</span><span class="n">water_input</span><span class="p">])</span> <span class="c1">#molecule number 2</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">#Add the mole fractions</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#This is the mole fraction array for the mixture we are analyzing, the first number corresponds to butane and the second one to water</span>
-
-<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\cosmors.py:97,</span> in <span class="ni">COSMORS.add_molecule</span><span class="nt">(self, filepath_lst)</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd"> Add a molecule to the model class</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_jobs</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">97</span> <span class="bp">self</span><span class="o">.</span><span class="n">enth</span><span class="o">.</span><span class="n">add_molecule</span><span class="p">(</span><span class="n">filepath_lst</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="n">A_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mol</span><span class="o">.</span><span class="n">get_area</span><span class="p">()</span> <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">enth</span><span class="o">.</span><span class="n">mol_lst</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span> <span class="bp">self</span><span class="o">.</span><span class="n">comb</span><span class="o">.</span><span class="n">set_area_array</span><span class="p">(</span><span class="n">A_arr</span><span class="p">)</span>
-
-<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\cosmors.py:586,</span> in <span class="ni">COSMORSEnthalpic.add_molecule</span><span class="nt">(self, filepath_lst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="k">def</span> <span class="nf">add_molecule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath_lst</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span><span class="sd">     Add a molecule to the object</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">583</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mol_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Molecule</span><span class="p">(</span><span class="n">filepath_lst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">qc_program</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span>     <span class="n">mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mol_lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span>     <span class="n">mol</span><span class="o">.</span><span class="n">convert_properties</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">r_av</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="o">.</span><span class="n">mf_r_av_corr</span><span class="p">)</span>
-
-<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\molecules.py:33,</span> in <span class="ni">Molecule.__init__</span><span class="nt">(self, filepath_lst, qc_program)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepath_lst</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>     <span class="n">cosmo_info</span> <span class="o">=</span> <span class="n">SigmaProfileParser</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">qc_program</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">COSMOStruct</span><span class="p">(</span><span class="n">cosmo_info</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cosmo_struct_lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\input_parsers.py:57,</span> in <span class="ni">SigmaProfileParser.__init__</span><span class="nt">(self, filepath, qc_program, calculate_averaged_sigmas)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_read_turbomolesp</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">elif</span> <span class="n">qc_program</span> <span class="o">==</span> <span class="s2">&quot;orca&quot;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_read_orcasp</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown QC file format: </span><span class="si">{</span><span class="n">qc_program</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~\Desktop\openCOSMO-RS_py\src\opencosmorspy\input_parsers.py:532,</span> in <span class="ni">SigmaProfileParser._read_orcasp</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="k">def</span> <span class="nf">_read_orcasp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">532</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;filepath&quot;</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">orcasp_file</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span>         <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">orcasp_file</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="nn">    535         self[&quot;name&quot;], self[&quot;method&quot;] = (entry.strip() for entry</span> in <span class="ni">line.split</span><span class="nt">(&quot;:&quot;))</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;C:\\Users\\prisc\\Desktop\\orcacosmo_files\\butane\\COSMO_TZVPD\\butane_c000.orcacosmo&#39;
 </pre></div>
 </div>
 </div>
@@ -680,9 +624,9 @@ Aftwards you should see two more folders: pentane and butane.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using pure_component:  [[9.51404423 0.        ]]
-Residual logarithmic activity coefficient using pure_component:  [[10.29435427  0.        ]]
-Combinatorial logarithmic activity coefficient using pure_component: [[-0.78031005  0.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using pure_component:  [[9.51405683 0.        ]]
+Residual logarithmic activity coefficient using pure_component:  [[10.2943666  0.       ]]
+Combinatorial logarithmic activity coefficient using pure_component: [[-0.78030977  0.        ]]
 </pre></div>
 </div>
 </div>
@@ -725,9 +669,9 @@ Combinatorial logarithmic activity coefficient using pure_component: [[-0.780310
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using reference_mixture:  [[-7.59753365  1.26694064]]
-Residual logarithmic activity coefficient using reference_mixture:  [[-8.23177142  1.39386759]]
-Combinatorial logarithmic activity coefficient using reference_mixture: [[ 0.63423777 -0.12692695]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using reference_mixture:  [[-7.59754472  1.26694203]]
+Residual logarithmic activity coefficient using reference_mixture:  [[-8.23178225  1.39386894]]
+Combinatorial logarithmic activity coefficient using reference_mixture: [[ 0.63423753 -0.12692691]]
 </pre></div>
 </div>
 </div>
@@ -754,9 +698,9 @@ Combinatorial logarithmic activity coefficient using reference_mixture: [[ 0.634
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[ 2.45646935 -0.93100187]]
-Residual logarithmic activity coefficient using cosmo:  [[ 2.63485277 -0.76204584]]
-Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.16895603]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[11.49643925 -2.32538188]]
+Residual logarithmic activity coefficient using cosmo:  [[12.62503979 -2.32538188]]
+Combinatorial logarithmic activity coefficient using cosmo: [[-1.12860054  0.        ]]
 </pre></div>
 </div>
 </div>
@@ -774,9 +718,9 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#example with the molecules of butane, cyclopentane, benzene and toluene in water, lets add the remaining ones:</span>
-<span class="n">cp_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\cyclopentane\COSMO_TZVPD\cyclopentane_c000.orcacosmo&quot;</span>
-<span class="n">bz_input</span> <span class="o">=</span>  <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\benzene\COSMO_TZVPD\benzene_c000.orcacosmo&quot;</span>
-<span class="n">tol_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\orcacosmo_files\toluene\COSMO_TZVPD\toluene_c000.orcacosmo&quot;</span>
+<span class="n">cp_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\cyclopentane_c000.orcacosmo&quot;</span>
+<span class="n">bz_input</span> <span class="o">=</span>  <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\benzene_c000.orcacosmo&quot;</span>
+<span class="n">tol_input</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;orcacosmo_files\toluene_c000.orcacosmo&quot;</span>
 
 
 <span class="n">model</span><span class="o">.</span><span class="n">clear_molecules</span><span class="p">()</span>
@@ -808,7 +752,7 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[9.51404423 9.72489802 7.87271231 9.41188882 0.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[9.51405683 9.72489802 7.87271231 9.41188882 0.        ]]
 </pre></div>
 </div>
 </div>
@@ -848,7 +792,7 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c10b61f98cdbcbc70c9d6f5fb712f7811d38a6152478cb08be34fceffa95a4af.png" src="../../_images/c10b61f98cdbcbc70c9d6f5fb712f7811d38a6152478cb08be34fceffa95a4af.png" />
+<img alt="../../_images/1fd582ea7cacdc43841da55a6d0339368a80b31f65fffeaa24cf1a09ec731fa9.png" src="../../_images/1fd582ea7cacdc43841da55a6d0339368a80b31f65fffeaa24cf1a09ec731fa9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -872,6 +816,7 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_extended_sigma_profile_plotly</span><span class="p">(</span><span class="n">butane_input</span><span class="p">)</span>
+<span class="n">plot_extended_sigma_profile_plotly</span><span class="p">(</span><span class="n">tol_input</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -880,21 +825,15 @@ Combinatorial logarithmic activity coefficient using cosmo: [[-0.17838341 -0.168
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="further-examples">
 <h1>2.6 Further examples:<a class="headerlink" href="#further-examples" title="Link to this heading">#</a></h1>
+<p>For these examples, we need to change to the openCOSMO-RS directory, change the address to where your openCOSMO-RS_py is installed</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to change to the openCOSMO-RS directory, ⚠️⚠️⚠️</span>
-<span class="n">new_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;c:\Users\prisc\Desktop\openCOSMO-RS_py\examples&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#⚠️⚠️⚠️</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;../../..&quot;</span><span class="p">)</span>
+<span class="n">new_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;openCOSMO-RS_py\examples&#39;</span>
 
 <span class="c1"># Change the current working directory</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">new_directory</span><span class="p">)</span>
-
-<span class="c1"># Verify the change</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current Directory:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current Directory: c:\Users\prisc\Desktop\openCOSMO-RS_py\examples
 </pre></div>
 </div>
 </div>
@@ -1276,15 +1215,6 @@ cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">II. openCOSMO-RS</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="ResultsAnalysis.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3 Results Analysis 🔍</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

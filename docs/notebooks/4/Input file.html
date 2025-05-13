@@ -197,7 +197,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../7/firstexamples.html">2. First Examples 🔬</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../7/ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
 </ul>
 </details></li>
 </ul>
@@ -420,8 +419,7 @@ document.write(`
 <p>If we want to create an input file for the water molecule we can do:</p>
 <p><strong>water [TAB] O [TAB] [TAB] 0</strong></p>
 <p>In this we did not include the <span style="color:LightSteelBlue"><em>xyz_file</em></span> and  the <span style="color:#DB7093">geometry_optimization</span></p>
-<p><br><br></p>
-<p><em>My recommendation is that we save the file inside the github repository folder, so when we later call it we can use the same file path for the program and the input file and avoid confusion.</em></p>
+<br>
 <div><p><strong>For every line that you have the following symbols: ⚠️⚠️⚠️ you need to modify and specify the correct address in your computer</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -430,7 +428,7 @@ document.write(`
 <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;water</span><span class="se">\t</span><span class="s1">O</span><span class="se">\t\t</span><span class="s1">0&#39;</span>
 
 <span class="c1">#set up the file path and name the file ⚠️⚠️⚠️</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\water.inp&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;INPUT_FILES\water.inp&quot;</span>
 
 <span class="c1"># Open a file in write mode</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
@@ -441,7 +439,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\water.inp
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at INPUT_FILES\water.inp
 </pre></div>
 </div>
 </div>
@@ -465,7 +463,7 @@ Let's do it for butane and pentane: <br>
 <div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first we set up the file path and name the file ⚠️⚠️⚠️</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\butane_xyz_file.xyz&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;INPUT_FILES\butane_xyz_file.xyz&quot;</span>
 
 <span class="c1">#remember that the formula for butane is C4H10, so we have 14 atoms in total </span>
 <span class="c1"># and 14 lines of the xyz coordinates</span>
@@ -497,7 +495,7 @@ Let's do it for butane and pentane: <br>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\butane_xyz_file.xyz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at INPUT_FILES\butane_xyz_file.xyz
 </pre></div>
 </div>
 </div>
@@ -510,7 +508,7 @@ Let's do it for butane and pentane: <br>
 <span class="p">]</span>
 
 <span class="c1">#set up the file path and name the file ⚠️⚠️⚠️</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\two_molecules.inp&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;INPUT_FILES\two_molecules.inp&quot;</span>
 
 <span class="c1"># Open a file in write mode</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
@@ -522,7 +520,7 @@ Let's do it for butane and pentane: <br>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at C:\Users\prisc\Desktop\openCOSMO-RS_conformer_pipeline\two_molecules.inp
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File created  at INPUT_FILES\two_molecules.inp
 </pre></div>
 </div>
 </div>
