@@ -197,6 +197,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../7/firstexamples.html">2. First Examples 🔬</a></li>
 
 
+<li class="toctree-l2"><a class="reference internal" href="../7/ResultsAnalysis.html">3 Results Analysis 🔍</a></li>
 </ul>
 </details></li>
 </ul>
@@ -400,8 +401,8 @@ document.write(`
 <h1>4. Let’s create the input file 🧪<a class="headerlink" href="#let-s-create-the-input-file" title="Link to this heading">#</a></h1>
 <br>
 <div style="line-height: 1.5;">
-<p>This inp.ile is gonna be the base for the creation of our <em>.orcacosmo</em> that we are gonna use in the openCOSMO-RS program.</p>
-<p>The first step is to generate a <em>.inp</em> type file with some information about the molecule. The formating should be the following:</p>
+<p>This inp. file is gonna be the base for the creation of our <em>.orcacosmo</em> that we are gonna use in the openCOSMO-RS program.</p>
+<p>The first step is to generate a <em>.inp</em> type file with some information about the molecule. The formatting should be the following:</p>
 <p><strong><span style="color:LightCoral">name_of_molecule</span>  [TAB] <span style="color:Plum">SMILES_of_molecule</span>  [TAB]  <span style="color:LightSteelBlue"><em>xyz_file</em></span>  [TAB]  <span style="color:LightSeaGreen">charge_of_molecule</span>  [TAB]  <span style="color:#DB7093">geometry_optimization</span></strong></p>
 <ul class="simple">
 <li><p><strong><span style="color:LightCoral">name_of_molecule:</span></strong> any name like methanol, water, etc.</p></li>
@@ -412,7 +413,7 @@ document.write(`
 </ul>
 <p>The <strong><span style="color:LightSteelBlue"><em>xyz_file</em></span></strong> is optional to include as well as the <span style="color:#DB7093">geometry_optimization</span> <br><br></p>
 <ul class="simple">
-<li><p>If we do not have an xyz_file, the program will use Python’s library RDKit or Balloon to search for a conformer before sending it to xtb to do an extensive conformer search. At the end the program wil give us an xyz file that generated based on those calculations <br></p></li>
+<li><p>If we do not have an xyz_file, the program will use Python’s library RDKit or Balloon to search for a conformer before sending it to xtb to do an extensive conformer search. At the end the program will give us an xyz file that generated based on those calculations <br></p></li>
 <li><p>If we do not include the geometry optimization, the last calculations will be made using the xyz file only without optimizing the position of the atoms<br></p></li>
 </ul>
 <br>
