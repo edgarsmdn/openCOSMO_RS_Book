@@ -21,6 +21,7 @@ sphinx:
     - sphinxcontrib.bibtex
   config:
     bibtex_bibfiles: ["references.bib"]
+    bibtex_reference_style: super
 
     
 # Information about where the book exists on the web
