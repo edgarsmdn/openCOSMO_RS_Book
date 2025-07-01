@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -420,7 +420,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="i-what-is-cosmo-rs">
 <h1>I. What is COSMO-RS ❓<a class="headerlink" href="#i-what-is-cosmo-rs" title="Link to this heading">#</a></h1>
 <div style="line-height: 1.5;">
-<p><strong>COSMO-RS</strong> (Conductor like screening model for real solvents) is a theoretical approach used to calculate <strong>solvation phenomena</strong> in chemistry [papers]. It provides a way to estimate the <strong>thermodynamic properties</strong> of fluid systems based solely on the molecular structure. It predicts how a solvent will behave and interact with a solute being capable of estimating different thermodynamic metrics such as <strong>partition coefficients</strong>, <strong>solvation energies</strong> and the sigma profiles have been used to correlate and predict successfully many properties including <strong>density</strong>, <strong>surface tension</strong>, and <strong>vapor pressure</strong>. [papers]</p>
+<p><strong>COSMO-RS</strong> (Conductor like screening model for real solvents) is a theoretical approach used to calculate <strong>solvation phenomena</strong> in chemistry [&#64;klamt1995]. It provides a way to estimate the <strong>thermodynamic properties</strong> of fluid systems based solely on the molecular structure. It predicts how a solvent will behave and interact with a solute being capable of estimating different thermodynamic metrics such as <strong>partition coefficients</strong>, <strong>solvation energies</strong> and the sigma profiles have been used to correlate and predict successfully many properties including <strong>density</strong>, <strong>surface tension</strong>, and <strong>vapor pressure</strong> [&#64;klamt1995, &#64;Klamt1998, &#64;Eckert2002369].</p>
 <section id="a-bit-of-history">
 <h2>A bit of history 📜<a class="headerlink" href="#a-bit-of-history" title="Link to this heading">#</a></h2>
 <p>The computational description of molecules in the fluid phase represented a challenge, for the current methods at the time struggled to capture the complex interactions between the molecules like <strong>polarization effects</strong> and <strong>cooperative interactions</strong>. <br><br>
@@ -452,13 +452,11 @@ In the 1970s, research concentrated on treating the solvent as a continuous medi
 <h2>Real fluids vs ideal ones 💧<a class="headerlink" href="#real-fluids-vs-ideal-ones" title="Link to this heading">#</a></h2>
 <p>As mentioned, fluids are being visualized as ideally screened where two segments with opposite surface charge densities interact perfectly so their net energy is zero. However, with real fluids it is not possible due to entropy and the non-ideal nature of molecular interactions; therefore, they do not cancel perfectly each other’s charges. These non-ideal parings result in a <strong>“misfit energy”</strong>.</p>
 <p>The misfit energy represents the interaction energy of two segments with unequal surface charges. This situation occurs because the solute’s surface segments pair with other surface segments with a charge density that not equal to the opposite of its charge density, resulting in a mismatch or misfit energy that balances the non-ideal screening. The misfit energy quantifies the interaction energy of two segments interacting with radius <span class="math notranslate nohighlight">\(R_{eff}\)</span> and surface charges <span class="math notranslate nohighlight">\(\sigma_1, \sigma_2\)</span>.</p>
-<p>HB missing #TODO</p>
-<p>we could add dispersion here</p>
 </section>
 <section id="what-is-opencosmo-rs">
 <h2>What is openCOSMO-RS ❓<a class="headerlink" href="#what-is-opencosmo-rs" title="Link to this heading">#</a></h2>
 <div style="line-height: 1.5;">
-<p>This model <strong><span style="color:#FF6347;">improves the predictive accuracy</span></strong> of the fluid phase thermodynamics by incorporating <strong><span style="color:#4682B4;">multiple segmental descriptors</span></strong>. The screening charge density <strong><span class="math notranslate nohighlight">\(\sigma\)</span></strong> is still the main descriptor, but additional ones such as the <strong>polarity counterpart</strong> screening charge density introduced by Andreas Klamt, <strong><span class="math notranslate nohighlight">\(\sigma_⊥\)</span></strong>, are now being used to improve the model.  It is calculated by the formula below:</p>
+<p>This model <strong><span style="color:#FF6347;">improves the predictive accuracy</span></strong> of the fluid phase thermodynamics by incorporating <strong><span style="color:#4682B4;">multiple segmental descriptors</span></strong>. The screening charge density <strong><span class="math notranslate nohighlight">\(\sigma\)</span></strong> is still the main descriptor, but additional ones such as the <strong>polarity counterpart</strong> screening charge density introduced by Andreas Klamt, <strong><span class="math notranslate nohighlight">\(\sigma_⊥\)</span></strong>, are now being used to improve the model. [&#64;Müller2022] It is calculated by the formula below:</p>
 <p><span class="math notranslate nohighlight">\(\sigma⊥ = \sigma_\alpha - 0.816\sigma_\alpha^0 \)</span></p>
 <p>Some additional characteristics of the model:</p>
 <ul class="simple">
@@ -471,7 +469,7 @@ In the 1970s, research concentrated on treating the solvent as a continuous medi
 <section id="opencosmo-rs-24a">
 <h3>openCOSMO-RS 24a 💫<a class="headerlink" href="#opencosmo-rs-24a" title="Link to this heading">#</a></h3>
 <p>The openCOSMO-RS 24a is a new and improved version of the open-source COSMO-RS model. This version is designed to predict <strong>solvation free energies</strong> using quantum chemical calculations from ORCA. More information about it can be found <a class="reference external" href="https://doi.org/10.1016/j.fluid.2024.114250">here</a></p>
-<p>[papers]</p>
+<p>[&#64;MULLER2025]</p>
 </section>
 <section id="what-is-the-solvation-free-energy-gsolv">
 <h3>What is the solvation free energy, ΔGsolv? ⚡<a class="headerlink" href="#what-is-the-solvation-free-energy-gsolv" title="Link to this heading">#</a></h3>

@@ -16,3 +16,4 @@ chapters:
     sections:
       - file: notebooks/7/firstexamples.ipynb
       - file: notebooks/7/ResultsAnalysis.ipynb
+  - file: notebooks/references.ipynb

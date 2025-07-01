@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -401,7 +401,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-all-necessary-libraries">2.1 Import all necessary libraries  📚</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-paths-to-our-orcacosmo-files-and-set-the-output-directory">2.2 Define the paths to our .orcacosmo files and set the output directory 📒</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-parameterization-and-call-the-model">2.3 Choose a parameterization and call the model ⚙️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-start-with-the-first-calculations-using-opencosmo">2.4 Let’s start with the first calculations using openCOSMO 🧪</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-start-with-the-first-calculations-using-opencosmo">2.4 Let’s start with the first calculations using openCOSMO 🧪</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-calculations">Multiple calculations:</a></li>
 </ul>
 </li>
@@ -429,35 +429,35 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from the cosmo_visualizations code in our src folder</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.cosmo_visualizations</span> <span class="kn">import</span> <span class="n">plot_sigma_profiles</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.cosmo_visualizations</span> <span class="kn">import</span> <span class="n">plot_3D_segment_location</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.cosmo_visualizations</span> <span class="kn">import</span> <span class="n">plot_extended_sigma_profile_plotly</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.cosmo_visualizations</span> <span class="kn">import</span> <span class="n">plot_sigma_profiles_plotly</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.cosmo_visualizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_sigma_profiles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.cosmo_visualizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_3D_segment_location</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.cosmo_visualizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_extended_sigma_profile_plotly</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.cosmo_visualizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_sigma_profiles_plotly</span>
 
 <span class="c1">#from the cosmors code in our src folder</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.cosmors</span> <span class="kn">import</span> <span class="n">COSMORS</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.cosmors</span><span class="w"> </span><span class="kn">import</span> <span class="n">COSMORS</span> 
 
 <span class="c1">#from the input_parsers code in our src folder</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.input_parsers</span> <span class="kn">import</span> <span class="n">SigmaProfileParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.input_parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SigmaProfileParser</span>
 
 <span class="c1">#from the parameterization code in our src folder</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.parameterization</span> <span class="kn">import</span> <span class="n">Parameterization</span>
-<span class="kn">from</span> <span class="nn">opencosmorspy.parameterization</span> <span class="kn">import</span> <span class="n">openCOSMORS24a</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.parameterization</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameterization</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opencosmorspy.parameterization</span><span class="w"> </span><span class="kn">import</span> <span class="n">openCOSMORS24a</span>
 
 <span class="c1">#other libraries:</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotly</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.constants</span> <span class="k">as</span> <span class="nn">spcon</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
-<span class="kn">import</span> <span class="nn">kaleido</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
-<span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spcon</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kaleido</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
 <span class="n">periodic_table</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">GetPeriodicTable</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span>
 </pre></div>
 </div>
 </div>
@@ -472,22 +472,9 @@ Aftwards you should see two more folders: pentane and butane.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Let&#39;s now create the folder where we are going to save all of our results</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;Results_openCOSMO&quot;</span>
+
 <span class="c1">#then create the folder where our files are gonna be, for this line to work we need to make sure that the folder does not exist!</span>
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;Results_openCOSMO&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#then create the folder where our files are gonna be, for this line to work we need to make sure that the folder does not exist!</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen os&gt;:225,</span> in <span class="ni">makedirs</span><span class="nt">(name, mode, exist_ok)</span>
-
-<span class="ne">FileExistsError</span>: [WinError 183] Cannot create a file when that file already exists: &#39;Results_openCOSMO&#39;
+<span class="c1">#os.makedirs(output_dir)</span>
 </pre></div>
 </div>
 </div>
@@ -523,8 +510,8 @@ Aftwards you should see two more folders: pentane and butane.</p>
 </div>
 </div>
 </section>
-<section id="let-s-start-with-the-first-calculations-using-opencosmo">
-<h2>2.4 Let’s start with the first calculations using openCOSMO 🧪<a class="headerlink" href="#let-s-start-with-the-first-calculations-using-opencosmo" title="Link to this heading">#</a></h2>
+<section id="lets-start-with-the-first-calculations-using-opencosmo">
+<h2>2.4 Let’s start with the first calculations using openCOSMO 🧪<a class="headerlink" href="#lets-start-with-the-first-calculations-using-opencosmo" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Use the function calculate_contact_statistics_molecule_properties from the cosmo-rs code</span>
@@ -572,9 +559,9 @@ Aftwards you should see two more folders: pentane and butane.</p>
 <a class="reference internal image-reference" href="../../_images/refst.png"><img alt="reference_state" src="../../_images/refst.png" style="width: 550px;" />
 </a>
 <ol class="arabic simple">
-<li><p><strong><span style="color:#FF6347;">’pure component’</span></strong>: use it when we want to understand the behavior of each component relative to its <em>pure state</em>. Useful for calculating properties like infinite dilution activity coefficients or comparing mixture behavior to pure substances</p></li>
-<li><p><strong><span style="color:#1E90FF;">’reference_mixture’</span></strong>: use it when we have a specific mixture to study the deviations from it</p></li>
-<li><p><strong><span style="color:#32CD32;">’COSMO’</span></strong>: use it when we want to calculate properties “without” reference state. This state is used to calculate solvation energies</p></li>
+<li><p><strong><span style="color:#FF6347;">‘pure component’</span></strong>: use it when we want to understand the behavior of each component relative to its <em>pure state</em>. Useful for calculating properties like infinite dilution activity coefficients or comparing mixture behavior to pure substances</p></li>
+<li><p><strong><span style="color:#1E90FF;">‘reference_mixture’</span></strong>: use it when we have a specific mixture to study the deviations from it</p></li>
+<li><p><strong><span style="color:#32CD32;">‘COSMO’</span></strong>: use it when we want to calculate properties “without” reference state. This state is used to calculate solvation energies</p></li>
 </ol>
 <div>
 <div class="cell docutils container">
@@ -634,9 +621,9 @@ Combinatorial logarithmic activity coefficient using pure_component: [[-0.780309
 </div>
 </div>
 <div style="line-height: 1.5;">
-<p>Since we used <strong><span style="color:#FF6347;">’pure component’</span></strong> as a reference state and the mol fractions are [0,1] means that the Total logarithmic activity coefficient is actually the <strong><span style="color:#FF69B4;">Infinite dilution activity coefficient</span></strong> of butane in water at the given temperature.</p>
-<div><p>Let’s try with <strong><span style="color:#1E90FF;">’reference_mixture’</span></strong> and <strong><span style="color:#32CD32;">’COSMO’</span></strong> as reference state:</p>
-<p>In this second example we are using  <strong><span style="color:#1E90FF;">’reference_mixture’</span></strong> as refst. For the first component we are calculating <span class="math notranslate nohighlight">\(\gamma^\infty.\)</span> for the refst is at <strong>0</strong>, i.e. infinitely diluted. For the second component we are calculating <span class="math notranslate nohighlight">\(\gamma\)</span></p>
+<p>Since we used <strong><span style="color:#FF6347;">‘pure component’</span></strong> as a reference state and the mol fractions are [0,1] means that the Total logarithmic activity coefficient is actually the <strong><span style="color:#FF69B4;">Infinite dilution activity coefficient</span></strong> of butane in water at the given temperature.</p>
+<div><p>Let’s try with <strong><span style="color:#1E90FF;">‘reference_mixture’</span></strong> and <strong><span style="color:#32CD32;">‘COSMO’</span></strong> as reference state:</p>
+<p>In this second example we are using  <strong><span style="color:#1E90FF;">‘reference_mixture’</span></strong> as refst. For the first component we are calculating <span class="math notranslate nohighlight">\(\gamma^\infty.\)</span> for the refst is at <strong>0</strong>, i.e. infinitely diluted. For the second component we are calculating <span class="math notranslate nohighlight">\(\gamma\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">clear_jobs</span><span class="p">()</span>
@@ -700,9 +687,9 @@ Combinatorial logarithmic activity coefficient using reference_mixture: [[ 0.634
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[11.49643925 -2.32538188]]
-Residual logarithmic activity coefficient using cosmo:  [[12.62503979 -2.32538188]]
-Combinatorial logarithmic activity coefficient using cosmo: [[-1.12860054  0.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total logarithmic activity coefficient using cosmo:  [[ 2.38651604 -0.9143782 ]]
+Residual logarithmic activity coefficient using cosmo:  [[ 2.57085398 -0.73528238]]
+Combinatorial logarithmic activity coefficient using cosmo: [[-0.18433794 -0.17909583]]
 </pre></div>
 </div>
 </div>
@@ -1000,10 +987,10 @@ sigma_hydrogen_bond_acceptor_moments [5.77724896 3.3268231  1.38458782]
 <span class="n">t_fusion</span> <span class="o">=</span> <span class="mf">443.6</span> <span class="c1"># Fusion temperature of the solute (K)</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="mf">298.15</span>  <span class="c1"># Temperature for the solubility calculation (K)</span>
 
-<span class="k">def</span> <span class="nf">calc_solubility</span><span class="p">(</span><span class="n">crs</span><span class="p">,</span> <span class="n">delta_h_fusion</span><span class="p">,</span> <span class="n">t_fusion</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">iterative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_solubility</span><span class="p">(</span><span class="n">crs</span><span class="p">,</span> <span class="n">delta_h_fusion</span><span class="p">,</span> <span class="n">t_fusion</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">iterative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">rhs</span> <span class="o">=</span> <span class="o">-</span><span class="n">delta_h_fusion</span> <span class="o">/</span> <span class="n">R</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">temperature</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">t_fusion</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">calculate_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_gamma</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="n">crs</span><span class="o">.</span><span class="n">clear_jobs</span><span class="p">()</span>
         <span class="n">crs</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">refst</span><span class="o">=</span><span class="s1">&#39;pure_component&#39;</span><span class="p">)</span>
         <span class="n">results</span> <span class="o">=</span> <span class="n">crs</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
@@ -1013,7 +1000,7 @@ sigma_hydrogen_bond_acceptor_moments [5.77724896 3.3268231  1.38458782]
         <span class="n">ln_gamma_inf</span> <span class="o">=</span> <span class="n">calculate_gamma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span> 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ln_gamma_inf</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">equilibrium_condition</span><span class="p">(</span><span class="n">x_guess</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">equilibrium_condition</span><span class="p">(</span><span class="n">x_guess</span><span class="p">):</span>
         <span class="n">x_guess</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">1e-15</span><span class="p">,</span> <span class="n">x_guess</span><span class="p">)</span>
         <span class="n">x_guess</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_guess</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_guess</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x_guess</span><span class="p">])</span>
@@ -1062,10 +1049,18 @@ sigma_hydrogen_bond_acceptor_moments [5.77724896 3.3268231  1.38458782]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solubility of acetaminophen/paracetamol in
-water           non-iter calc: 0.00068 iter calc: 0.00012 exp: 0.00207
-ethanol         non-iter calc: 0.09563 iter calc: 0.06122 exp: 0.06624
-acetic_acid     non-iter calc: 0.06210 iter calc: 0.04727 exp: 0.03182
-cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>water           non-iter calc: 0.00068 iter calc: 0.00012 exp: 0.00207
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ethanol         non-iter calc: 0.09563 iter calc: 0.06122 exp: 0.06624
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>acetic_acid     non-iter calc: 0.06210 iter calc: 0.04727 exp: 0.03182
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
 </pre></div>
 </div>
 </div>
@@ -1079,7 +1074,7 @@ cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
 
 <span class="n">crs</span> <span class="o">=</span> <span class="n">COSMORS</span><span class="p">(</span><span class="n">par</span><span class="o">=</span><span class="n">openCOSMORS24a</span><span class="p">())</span>
 
-<span class="k">def</span> <span class="nf">calculte_liquid_molar_volume_25C</span><span class="p">(</span><span class="n">spp</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculte_liquid_molar_volume_25C</span><span class="p">(</span><span class="n">spp</span><span class="p">):</span>
     <span class="n">spp</span><span class="o">.</span><span class="n">calculate_sigma_moments</span><span class="p">()</span>
 
     <span class="n">molecule_is_water</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">spp</span><span class="p">[</span><span class="s1">&#39;atm_elmnt&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">]</span>
@@ -1105,11 +1100,11 @@ cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
 
     <span class="k">return</span> <span class="n">molar_volume_at_25C</span> <span class="o">/</span> <span class="mi">1_000_000</span> <span class="c1"># m³/mol</span>
 
-<span class="k">def</span> <span class="nf">read_gas_phase_energy</span><span class="p">(</span><span class="n">gas_file</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_gas_phase_energy</span><span class="p">(</span><span class="n">gas_file</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">gas_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
     
-<span class="k">def</span> <span class="nf">calculate_number_of_atoms_in_ring</span><span class="p">(</span><span class="n">gas_file</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_number_of_atoms_in_ring</span><span class="p">(</span><span class="n">gas_file</span><span class="p">):</span>
     <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromXYZFile</span><span class="p">(</span><span class="n">gas_file</span><span class="p">)</span>
     <span class="n">number_of_atoms_in_ring</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">():</span>
@@ -1117,7 +1112,7 @@ cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
             <span class="n">number_of_atoms_in_ring</span> <span class="o">=</span> <span class="n">number_of_atoms_in_ring</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">number_of_atoms_in_ring</span>
 
-<span class="k">def</span> <span class="nf">calculate_dGsolvation</span><span class="p">(</span><span class="n">solute_file</span><span class="p">,</span> <span class="n">solute_gas_file</span><span class="p">,</span> <span class="n">solvent_file</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_dGsolvation</span><span class="p">(</span><span class="n">solute_file</span><span class="p">,</span> <span class="n">solute_gas_file</span><span class="p">,</span> <span class="n">solvent_file</span><span class="p">):</span>
     
     <span class="n">kJ_per_kcal</span> <span class="o">=</span> <span class="mf">4.184</span>  
     <span class="n">kJdivmol_per_hartree</span> <span class="o">=</span> <span class="mf">2625.499639479</span> <span class="c1"># (kJ/mol)/hartree</span>
@@ -1247,7 +1242,7 @@ cyclohexane     non-iter calc: 0.00000 iter calc: 0.00000 exp: N/A
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-all-necessary-libraries">2.1 Import all necessary libraries  📚</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-paths-to-our-orcacosmo-files-and-set-the-output-directory">2.2 Define the paths to our .orcacosmo files and set the output directory 📒</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-parameterization-and-call-the-model">2.3 Choose a parameterization and call the model ⚙️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-start-with-the-first-calculations-using-opencosmo">2.4 Let’s start with the first calculations using openCOSMO 🧪</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-start-with-the-first-calculations-using-opencosmo">2.4 Let’s start with the first calculations using openCOSMO 🧪</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-calculations">Multiple calculations:</a></li>
 </ul>
 </li>
