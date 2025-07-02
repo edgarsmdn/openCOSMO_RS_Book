@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: openCOSMO-RS Book
-author: Priscilla Ensley, Simon Müller, Edgar Sanchez
+author: Priscilla Ensley, Simon Müller, Edgar Ivan Sanchez Medina
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
