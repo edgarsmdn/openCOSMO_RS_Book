@@ -4,6 +4,7 @@
 title: openCOSMO-RS Book
 author: Priscilla Ensley, Simon Müller, Edgar Ivan Sanchez Medina
 logo: logo.png
+copyright  : "2025"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
